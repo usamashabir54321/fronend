@@ -38,8 +38,11 @@
 										<li class="dropdown"><nuxt-link to="/about">About</nuxt-link></li>
 										<li class="dropdown"><nuxt-link to="/faq">FAQ's</nuxt-link></li>
 										<li><nuxt-link to="/contact">Contact</nuxt-link></li>
-										<li><nuxt-link to="/login">Login</nuxt-link></li>
-										<li><nuxt-link to="/register">Register</nuxt-link></li>
+
+										<li v-if="$cookies.get('admin_u_name')"><nuxt-link :to="{ name: 'admin-dashboard' }">{{ $cookies.get('admin_u_name') }}</nuxt-link></li>
+										<li v-else><nuxt-link to="/login">Login</nuxt-link></li>
+										<li v-if="!$cookies.get('admin_u_name')"><nuxt-link to="/register">Register</nuxt-link></li>
+
 									</ul>
 								</div>
 							</nav>

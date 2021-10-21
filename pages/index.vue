@@ -340,5 +340,67 @@
 		</section>
 		<!-- End Clients Section -->
 
+		<script>
+			(function($) {
+				"use strict";
+						// Testimonial Carousel
+					if ($('.testimonial-carousel').length) {
+						$('.testimonial-carousel').owlCarousel({
+							loop:true,
+							margin:0,
+							nav:true,
+							smartSpeed: 500,
+							autoplay: 4000,
+							navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+							responsive:{
+								0:{
+									items:1
+								},
+								480:{
+									items:1
+								},
+								600:{
+									items:1
+								},
+								800:{
+									items:2
+								},
+								1024:{
+									items:2
+								}
+							}
+						});    		
+					}
+						// Sponsors Item Carousel
+					if ($('.sponsors-carousel').length) {
+						$('.sponsors-carousel').owlCarousel({
+							loop:true,
+							margin:0,
+							nav:true,
+							smartSpeed: 500,
+							autoplay: 4000,
+							navText: [ '<span class="fa fa-angle-left"></span>', '<span class="fa fa-angle-right"></span>' ],
+							responsive:{
+								0:{
+									items:1
+								},
+								480:{
+									items:2
+								},
+								600:{
+									items:3
+								},
+								800:{
+									items:4
+								},
+								1024:{
+									items:5
+								}
+							}
+						});    		
+					}
+			})(window.jQuery);
+		</script>
+
 	</div>
 </template>
