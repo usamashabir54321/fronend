@@ -8,11 +8,11 @@
         <admin-footer />
         <a href="#" data-target="theme-cutomizer-out" class="btn btn-customizer pink accent-2 white-text sidenav-trigger theme-cutomizer-trigger"><i class="material-icons">settings</i></a>
       </div>
+    </div>
       <script src="/admin/js/vendors.min.js"></script>
       <script src="/admin/js/plugins.min.js"></script>
       <script src="/admin/js/search.min.js"></script>
       <script src="/admin/js/scripts/customizer.min.js"></script>
-    </div>
   </div>
 </template>
 
