@@ -8,7 +8,6 @@
     </div>
     <script src="/admin/js/vendors.min.js"></script>
     <script src="/admin/js/plugins.min.js"></script>
-    <script src="/admin/js/search.min.js"></script>
     <script src="/admin/js/scripts/customizer.min.js"></script>
   </div>
 </template>
