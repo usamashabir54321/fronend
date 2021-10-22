@@ -38,7 +38,7 @@
           { rel: 'stylesheet' , href: '/admin/css/pages/dashboard-modern.css' },
           { rel: 'stylesheet' , href: '/admin/css/custom/custom.css' },
           { rel: 'stylesheet' , href: '/admin/css/icon.css?family=Material+Icons' },
-        ]
+        ],
       }
     },
   }
