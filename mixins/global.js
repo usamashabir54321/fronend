@@ -30,7 +30,7 @@ export default {
 			}
 			var canv = document.createElement("canvas");
 			canv.id = "captcha_canvas";
-			canv.width = 150;
+			canv.width = 120;
 			canv.height = 40;
 			var ctx = canv.getContext("2d");
 			ctx.font = "30px Georgia";
