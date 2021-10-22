@@ -4,7 +4,7 @@
 		<div class="page-wrapper">
 		 	
 		    <!-- Preloader -->
-		    <!-- <div class="preloader"></div> -->
+		    <div class="preloader" v-if="preloadr"></div>
 		 	
 		 	<!-- Main Header-->
 		 	<header class="main-header header-style-two">
@@ -200,3 +200,16 @@
 		</div>
 	</div>
 </template>
+
+<script>
+	export default {
+		data () {
+			return {
+				preloadr: true,
+			}
+		},
+		mounted () {
+			setTimeout(() => { this.preloadr = false; },1000);
+		},
+	}
+</script>

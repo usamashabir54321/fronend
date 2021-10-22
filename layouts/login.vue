@@ -23,9 +23,3 @@
     }
   }
 </script>
-
-<style>
-  .preloader {
-    position: unset !important;
-  }
-</style>

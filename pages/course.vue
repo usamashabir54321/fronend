@@ -1,9 +1,6 @@
 <template>
 	<div class="page-wrapper">
 	 	
-	    <!-- Preloader -->
-	    <div class="preloader"></div>
-	 	
 		<!-- Sidebar Cart Item -->
 		<div class="xs-sidebar-group info-group">
 			<div class="xs-overlay xs-bg-black"></div>
