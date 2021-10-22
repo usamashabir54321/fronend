@@ -65,8 +65,8 @@
 
 									<div class="row col-8 m-auto">
 										<div class="col-4 pt-2"><p>Write captha code focusly</p></div>
-										<div class="col-2" id="captcha_prnt"></div>
-										<div class="col-6">
+										<div class="col-3 pt-1" id="captcha_prnt"></div>
+										<div class="col-5">
 											<div class="form-group">
 												<input type="text" v-model="addObj.captha_inpt" placeholder="Write captha code *" required>
 											</div>
