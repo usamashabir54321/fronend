@@ -5,7 +5,6 @@
     <Nuxt keep-alive/>
     <footer-l1 />
     
-    <script src="/webAssets/js/jquery.js"></script>
     <script src="/webAssets/js/popper.min.js"></script>
     <script src="/webAssets/js/bootstrap.min.js"></script>
     <script src="/webAssets/js/jquery.mCustomScrollbar.concat.min.js"></script>

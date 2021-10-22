@@ -15,7 +15,10 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/webAssets/images/favicon.png' },
       { rel: 'shortcut icon', type: 'image/x-icon', href: '/webAssets/images/favicon.png' },
-    ]
+    ],
+    script: [
+      { type: 'text/javascript', src: '/webAssets/js/jquery.js' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -43,6 +46,11 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://scilip.masoodapp.com/',
+  },
+
+  router: {
+    linkActiveClass: "active",
+    linkExactActiveClass: "active",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -187,7 +187,10 @@
 			</div>
 			<ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">
 				<li class="navigation-header"><a class="navigation-header-text">Admin</a><i class="navigation-header-icon material-icons">more_horiz</i></li>
-				<li class="bold" :class="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' ? 'active' : '' ]">
+				<li 
+					class="bold" 
+					:class="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' || $route.name == 'admin-crud' ? 'active open' : '' ]"
+				>
 					<a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)">
 						<i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
 					</a>
@@ -209,6 +212,12 @@
 								<nuxt-link :to="{ name : 'admin-linktwo' }">
 									<i class="material-icons">radio_button_unchecked</i>
 									<span>Link 2</span>
+								</nuxt-link>
+							</li>
+							<li>
+								<nuxt-link :to="{ name : 'admin-crud' }">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>CRUD</span>
 								</nuxt-link>
 							</li>
 						</ul>

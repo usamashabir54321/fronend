@@ -15,9 +15,7 @@
 </template>
 
 <script>
-  import GlobalJs from '~/mixins/global.js';
   export default {
-    mixins: [GlobalJs],
     data () {
       return {
         myApp : false,
@@ -35,11 +33,10 @@
         ]
       }
     },
-    mounted () {
+    created () {
       setTimeout(() => { this.myApp = true; },1000);
       if (!this.$cookies.get('admin_token')) {
-        setTimeout(() => { this.$router.push({name : '404-page-not-found'}); },800);
-        setTimeout(() => { this.swalfire('error','Please login to enter dashboard.'); },1300);
+        this.$router.push({name : '404-page-not-found'});
       } else {
         this.$axios.setHeader('Authorization', 'Bearer '+this.$cookies.get('admin_token'));
       }
