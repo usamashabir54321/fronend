@@ -1,18 +1,16 @@
 <template>
   <div>
-    <div v-show="!showAdmin" class="loading"><span></span></div>
-    <div v-show="showAdmin">
-      <div class="vertical-layout page-header-light vertical-menu-collapsible vertical-dark-menu preload-transitions 2-columns" data-open="click" data-menu="vertical-dark-menu" data-col="2-columns">
-        <admin-header />
-        <Nuxt keep-alive/>
-        <admin-footer />
-        <a href="#" data-target="theme-cutomizer-out" class="btn btn-customizer pink accent-2 white-text sidenav-trigger theme-cutomizer-trigger"><i class="material-icons">settings</i></a>
-      </div>
+    <div v-show="!myApp" class="loading"><span></span></div>
+    <div v-show="myApp" class="vertical-layout page-header-light vertical-menu-collapsible vertical-dark-menu preload-transitions 2-columns" data-open="click" data-menu="vertical-dark-menu" data-col="2-columns">
+      <admin-header />
+      <Nuxt keep-alive/>
+      <admin-footer />
+      <a href="#" data-target="theme-cutomizer-out" class="btn btn-customizer pink accent-2 white-text sidenav-trigger theme-cutomizer-trigger"><i class="material-icons">settings</i></a>
+    </div>
       <script src="/admin/js/vendors.min.js"></script>
       <script src="/admin/js/plugins.min.js"></script>
       <script src="/admin/js/search.min.js"></script>
       <script src="/admin/js/scripts/customizer.min.js"></script>
-    </div>
   </div>
 </template>
 
@@ -20,18 +18,8 @@
   export default {
     data () {
       return {
-        showAdmin: false,
+        myApp : false,
       }
-    },
-    beforeCreate () {
-      if (!this.$cookies.get('admin_token')) {
-        this.$router.push({name : '404-page-not-found'});
-      } else {
-        this.$axios.setHeader('Authorization', 'Bearer '+this.$cookies.get('admin_token'));
-      }
-    },
-    mounted () {
-      setTimeout(() => { this.showAdmin = true; },200);
     },
     head() {
       return {
@@ -44,6 +32,17 @@
           { rel: 'stylesheet' , href: '/admin/css/icon.css?family=Material+Icons' },
         ]
       }
+    },
+    created () {
+      setTimeout(() => { this.myApp = true; },300);
+      if (!this.$cookies.get('admin_token')) {
+        this.$router.push({name : '404-page-not-found'});
+      } else {
+        this.$axios.setHeader('Authorization', 'Bearer '+this.$cookies.get('admin_token'));
+      }
+    },
+    beforeDestroy() {
+      console.log('beforeDestroy')
     },
   }
 </script>
