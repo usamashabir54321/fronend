@@ -3,7 +3,10 @@
 		<!-- BEGIN: Header-->
 		<header class="page-topbar" id="header">
 			<div class="navbar navbar-fixed"> 
-				<nav class="navbar-main navbar-color nav-collapsible sideNav-lock navbar-light">
+				<nav 
+					class="navbar-main navbar-color nav-collapsible sideNav-lock" 
+					:class="selctNavClrOpt != null ? `navbar-dark ${settingClrs[selctNavClrOpt].clr_n}` : $cookies.get('nav_clr_indx') != null ? `navbar-dark ${settingClrs[$cookies.get('nav_clr_indx')].clr_n}` : 'navbar-light' "
+				>
 					<div class="nav-wrapper">
 						<div class="header-search-wrapper hide-on-med-and-down"><i class="material-icons">search</i>
 							<input class="header-search-input z-depth-2" type="text" name="Search" placeholder="Explore Materialize" data-search="template-list">
@@ -73,120 +76,20 @@
 		</header>
 		<!-- END: Header-->
 
-		<ul class="display-none" id="default-search-main">
-			<li class="auto-suggestion-title">
-				<a class="collection-item" href="#">
-					<h6 class="search-title">FILES</h6>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img src="/admin/images/icon/pdf-image.png" width="24" height="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">Two new item submitted</span><small class="grey-text">Marketing Manager</small></div>
-						</div>
-						<div class="status"><small class="grey-text">17kb</small></div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img src="/admin/images/icon/doc-image.png" width="24" height="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">52 Doc file Generator</span><small class="grey-text">FontEnd Developer</small></div>
-						</div>
-						<div class="status"><small class="grey-text">550kb</small></div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img src="/admin/images/icon/xls-image.png" width="24" height="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">25 Xls File Uploaded</span><small class="grey-text">Digital Marketing Manager</small></div>
-						</div>
-						<div class="status"><small class="grey-text">20kb</small></div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img src="/admin/images/icon/jpg-image.png" width="24" height="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">Anna Strong</span><small class="grey-text">Web Designer</small></div>
-						</div>
-						<div class="status"><small class="grey-text">37kb</small></div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion-title">
-				<a class="collection-item" href="#">
-					<h6 class="search-title">MEMBERS</h6>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img class="circle" src="/admin/images/avatar/avatar-7.png" width="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">John Doe</span><small class="grey-text">UI designer</small></div>
-						</div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img class="circle" src="/admin/images/avatar/avatar-8.png" width="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">Michal Clark</span><small class="grey-text">FontEnd Developer</small></div>
-						</div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img class="circle" src="/admin/images/avatar/avatar-10.png" width="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">Milena Gibson</span><small class="grey-text">Digital Marketing</small></div>
-						</div>
-					</div>
-				</a>
-			</li>
-			<li class="auto-suggestion">
-				<a class="collection-item" href="#">
-					<div class="display-flex">
-						<div class="display-flex align-item-center flex-grow-1">
-							<div class="avatar"><img class="circle" src="/admin/images/avatar/avatar-12.png" width="30" alt="sample image"></div>
-							<div class="member-info display-flex flex-column"><span class="black-text">Anna Strong</span><small class="grey-text">Web Designer</small></div>
-						</div>
-					</div>
-				</a>
-			</li>
-		</ul>
-
-		<ul class="display-none" id="page-search-title">
-			<li class="auto-suggestion-title">
-				<a class="collection-item" href="#">
-					<h6 class="search-title">PAGES</h6>
-				</a>
-			</li>
-		</ul>
-		<ul class="display-none" id="search-not-found">
-			<li class="auto-suggestion"><a class="collection-item display-flex align-items-center" href="#"><span class="material-icons">error_outline</span><span class="member-info">No results found.</span></a></li>
-		</ul>
-
 		<!-- BEGIN: SideNav-->
-		<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded" style="transition: all 0.3s ease-in-out !important;">
+		<aside 
+			class="sidenav-main nav-expanded nav-lock nav-collapsible" 
+			style="transition: all 0.3s ease-in-out !important;"
+			:class="selctMenBgClrOpt != null ? `sidenav-dark sidenav-gradient ${settingClrs[selctMenBgClrOpt].clr_n}` : $cookies.get('side__bg_clr_indx') != null ? `sidenav-dark sidenav-gradient ${settingClrs[$cookies.get('side__bg_clr_indx')].clr_n}` : 'sidenav-light' "
+		>
 			<div class="brand-sidebar">
 				<h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img class="hide-on-med-and-down " src="/admin/images/logo/materialize-logo.png" alt="materialize logo"><img class="show-on-medium-and-down hide-on-med-and-up" src="/admin/images/logo/materialize-logo-color.png" alt="materialize logo"><span class="logo-text hide-on-med-and-down">{{ $cookies.get('admin_u_name') }}</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
 			</div>
-			<ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">
+			<ul 
+				class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" 
+				id="slide-out" data-menu="menu-navigation" data-collapsible="accordion"
+				:class="selctMenClrOpt != null ? `${butnClrs[selctMenClrOpt].link}` : $cookies.get('nuxt_lnk_clr_indx') != null ? `${butnClrs[$cookies.get('nuxt_lnk_clr_indx')].link}` : 'link_a_purple_purple' "
+			>
 				<li class="navigation-header">
 					<a class="navigation-header-text">{{ $cookies.get('admin_u_type') }} Admin</a>
 					<i class="navigation-header-icon material-icons">more_horiz</i>
@@ -239,11 +142,111 @@
 			<div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
 		</aside>
 		<!-- END: SideNav-->
+
+		<!-- START CUSTOMIZER -->
+		<div id="theme-cutomizer-out" class="theme-cutomizer sidenav row right-aligned ps" :style="cutomizer ? {'transform' : 'translateX(0%)'} : {'transform' : 'translateX(100%)'}">
+			<div class="col s12">
+				<a class="sidenav-close" @click="$emit('closeCustomizr')"><i class="material-icons">close</i></a>
+				<h5 class="theme-cutomizer-title">Theme Customizer</h5>
+				<p class="medium-small">Customize & Preview in Real Time</p>
+				<div class="menu-options">
+					<h6 class="mt-6">Menu Options</h6>
+					<hr class="customize-devider">
+					<div class="menu-options-form row">
+						<div class="input-field col s12 menu-color mb-0">
+							<p class="mt-0">Menu Color</p>
+							<div class="gradient-color center-align">
+								<span v-for="(cls , index) in butnClrs" :key="index" :class="[index == selctMenClrOpt ? 'selected' : $cookies.get('nuxt_lnk_clr_indx') == index ? 'selected' : '' , `menu-color-option ${cls.clr_n}`]" @click="selctMenClrOpt = index" :data-color="cls.clr_n"></span>
+							</div>
+						</div>
+						<div class="text_center mt-3">
+							<button class="waves-effect waves-light btn gradient-45deg-purple-deep-orange gradient-shadow mr-2" @click="selctMenClrOpt = null;resetMyCookie('nuxt_lnk_clr_indx')">Reset</button>
+							<button class="btn btn-info" @click="setMyCokies(selctMenClrOpt,'nuxt_lnk_clr_indx')">Save</button>
+						</div>
+						<div class="input-field col s12 menu-bg-color mb-0">
+							<p class="mt-0">Menu Background Color</p>
+							<div class="gradient-color center-align">
+								<span v-for="(cls , index) in settingClrs" :key="index" :class="[index == selctMenBgClrOpt ? 'selected' : $cookies.get('side__bg_clr_indx') == index ? 'selected' : '' , `menu-bg-color-option ${cls.clr_n}`]" @click="selctMenBgClrOpt = index" :data-color="cls.clr_n"></span>
+							</div>
+						</div>
+						<div class="text_center mt-3">
+							<button class="waves-effect waves-light btn gradient-45deg-purple-deep-orange gradient-shadow mr-2" @click="selctMenBgClrOpt = null;resetMyCookie('side__bg_clr_indx')">Reset</button>
+							<button class="btn btn-info" @click="setMyCokies(selctMenBgClrOpt,'side__bg_clr_indx')">Save</button>
+						</div>
+					</div>
+				</div>
+				<h6 class="mt-6">Navbar Options</h6>
+				<hr class="customize-devider">
+				<div class="navbar-options row">
+					<div class="input-field col s12 navbar-color mb-0">
+						<p class="mt-0">Navbar Color</p>
+						<div class="gradient-color center-align">
+							<span v-for="(cls , index) in settingClrs" :key="index" :class="[index == selctNavClrOpt ? 'selected' : $cookies.get('nav_clr_indx') == index ? 'selected' : '' , `navbar-color-option ${cls.clr_n}`]" @click="selctNavClrOpt = index" :data-color="cls.clr_n"></span>
+						</div>
+					</div>
+				</div>
+				<div class="text_center mt-3">
+					<button class="waves-effect waves-light btn gradient-45deg-purple-deep-orange gradient-shadow mr-2" @click="selctNavClrOpt = null;resetMyCookie('nav_clr_indx')">Reset</button>
+					<button class="btn btn-info" @click="setMyCokies(selctNavClrOpt,'nav_clr_indx')">Save</button>
+				</div>
+			</div>
+		</div>
+		<!-- END CUSTOMIZER -->
 	</div>
 </template>
 
 <script>
 	export default {
+		props: ['cutomizer'],
+		data () {
+			return {
+				settingClrs : [
+					{clr_n : 'gradient-45deg-indigo-blue'},
+					{clr_n : 'gradient-45deg-purple-deep-orange'},
+					{clr_n : 'gradient-45deg-light-blue-cyan'},
+					{clr_n : 'gradient-45deg-purple-amber'},
+					{clr_n : 'gradient-45deg-purple-deep-purple'},
+					{clr_n : 'gradient-45deg-deep-orange-orange'},
+					{clr_n : 'gradient-45deg-green-teal'},
+					{clr_n : 'gradient-45deg-indigo-light-blue'},
+					{clr_n : 'gradient-45deg-red-pink'},
+					{clr_n : 'red'},
+					{clr_n : 'purple'},
+					{clr_n : 'pink'},
+					{clr_n : 'deep-purple'},
+					{clr_n : 'cyan'},
+					{clr_n : 'teal'},
+					{clr_n : 'light-blue'},
+					{clr_n : 'amber darken-3'},
+					{clr_n : 'brown darken-2'},
+					{clr_n : 'grey darken-5 dark'},
+				],
+				butnClrs : [
+					{clr_n : 'gradient-45deg-indigo-blue',link: 'link_a_blue'},
+					{clr_n : 'gradient-45deg-purple-deep-orange',link: 'link_a_purple_orange'},
+					{clr_n : 'gradient-45deg-light-blue-cyan',link: 'link_a_blue_cyan'},
+					{clr_n : 'gradient-45deg-purple-amber',link: 'link_a_purple_amber'},
+					{clr_n : 'gradient-45deg-purple-deep-purple',link: 'link_a_purple_purple'},
+					{clr_n : 'gradient-45deg-deep-orange-orange',link: 'link_a_orange_orange'},
+					{clr_n : 'gradient-45deg-green-teal',link: 'link_a_green_teal'},
+					{clr_n : 'gradient-45deg-indigo-light-blue',link: 'link_a_indigo_blue'},
+					{clr_n : 'gradient-45deg-red-pink',link: 'link_a_red_pink'},
+					{clr_n : 'red',link: 'link_a_red'},
+					{clr_n : 'purple',link: 'link_a_purple'},
+					{clr_n : 'pink',link: 'link_a_pink'},
+					{clr_n : 'deep-purple',link: 'link_a_deep_purple'},
+					{clr_n : 'cyan',link: 'link_a_cyan'},
+					{clr_n : 'teal',link: 'link_a_teal'},
+					{clr_n : 'light-blue',link: 'link_a_light_blue'},
+					{clr_n : 'amber darken-3',link: 'link_a_amber_darken_3'},
+					{clr_n : 'brown darken-2',link: 'link_a_brown_darken_2'},
+					{clr_n : 'grey darken-5 dark',link: 'link_a_grey_darken_5_dark'},
+				],
+				selctNavClrOpt: null,
+				selctMenClrOpt: null,
+				selctMenBgClrOpt: null,
+			}
+		},
   		methods: {
   			logout () {
 				this.$router.push({name : 'login'});
@@ -252,6 +255,57 @@
   			doFullScreen () {
   				document.fullScreenElement&&null!==document.fullScreenElement||!document.mozFullScreen&&!document.webkitIsFullScreen?document.documentElement.requestFullScreen?document.documentElement.requestFullScreen():document.documentElement.mozRequestFullScreen?document.documentElement.mozRequestFullScreen():document.documentElement.webkitRequestFullScreen?document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT):document.documentElement.msRequestFullscreen&&(document.msFullscreenElement?document.msExitFullscreen():document.documentElement.msRequestFullscreen()):document.cancelFullScreen?document.cancelFullScreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.webkitCancelFullScreen&&document.webkitCancelFullScreen()
   			},
+  			setMyCokies (index,cookie_n) {
+  				if (index != null) {
+  					this.$cookies.set(cookie_n, index);
+  					this.swalSuccess();
+  				}
+  				else { alert('Please Select Any Color.'); }
+  			},
+  			resetMyCookie (cookie_n) {
+  				this.$cookies.remove(cookie_n);
+  				this.swalSuccess();
+  			},
+  			swalSuccess () {
+  				this.$swal.fire({
+  					position: 'top-start',
+  					icon: 'success',
+  					title: 'Your work has been saved.Reload page for best Results.',
+  					showConfirmButton: false,
+  					timer: 1500
+  				})
+  			},
   		},
 	}
 </script>
+
+<style scoped>
+	div#theme-cutomizer-out {
+		transition: all 0.3s ease-in-out 0s !important;
+	}
+	nav.navbar-dark.grey.darken-5.dark , span.grey.darken-5.dark {
+	    background: black !important;
+	}
+	aside.grey.darken-5.dark {
+	    background: black !important;
+	}
+	ul.link_a_blue a.active {background: linear-gradient(45deg,#303f9f,#1976d2)!important;}
+	ul.link_a_purple_orange a.active {background: linear-gradient(45deg,#8e24aa,#ff6e40)!important;}
+	ul.link_a_blue_cyan a.active {background: linear-gradient(45deg,#0288d1,#26c6da)!important;}
+	ul.link_a_purple_amber a.active {background: linear-gradient(45deg,#d500f9,#ffa000)!important;}
+	ul.link_a_purple_purple a.active {background: linear-gradient(45deg,#7b1fa2,#7c4dff)!important;}
+	ul.link_a_orange_orange a.active {background: linear-gradient(45deg,#bf360c,#f57c00)!important;}
+	ul.link_a_green_teal a.active {background: linear-gradient(45deg,#43a047,#1de9b6)!important;}
+	ul.link_a_indigo_blue a.active {background: linear-gradient(45deg,#3949ab,#4fc3f7)!important;}
+	ul.link_a_red_pink a.active {background: linear-gradient(45deg,#ff5252,#f48fb1)!important;}
+	ul.link_a_red a.active {background-color: #f44336!important;}
+	ul.link_a_purple a.active {background-color: #9c27b0!important;}
+	ul.link_a_pink a.active {background-color: #e91e63!important;}
+	ul.link_a_deep_purple a.active {background-color: #673ab7!important;}
+	ul.link_a_cyan a.active {background-color: #00bcd4!important;}
+	ul.link_a_teal a.active {background-color: #009688!important;}
+	ul.link_a_light_blue a.active {background-color: #03a9f4!important;}
+	ul.link_a_amber_darken_3 a.active {background-color: #ff8f00!important;}
+	ul.link_a_brown_darken_2 a.active {background-color: #5d4037!important;}
+	ul.link_a_grey_darken_5_dark a.active {background-color: black!important;}
+</style>
