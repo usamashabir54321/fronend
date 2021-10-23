@@ -1,8 +1,8 @@
 <template>
 
-	<div id="theme-cutomizer-out" class="theme-cutomizer sidenav row">
+	<div id="theme-cutomizer-out" class="theme-cutomizer sidenav row right-aligned ps" :style="cutomizer ? {'transform' : 'translateX(0%)'} : {'transform' : 'translateX(100%)'}">
 		<div class="col s12">
-			<a class="sidenav-close" href="#!"><i class="material-icons">close</i></a>
+			<a class="sidenav-close" @click="$emit('closeCustomizr')"><i class="material-icons">close</i></a>
 			<h5 class="theme-cutomizer-title">Theme Customizer</h5>
 			<p class="medium-small">Customize & Preview in Real Time</p>
 			<div class="menu-options">
@@ -151,3 +151,15 @@
 	</div>
 	
 </template>
+
+<script>
+	export default {
+		props: ['cutomizer'],
+	}
+</script>
+
+<style scoped>
+	div#theme-cutomizer-out {
+		transition: all 0.3s ease-in-out 0s !important;
+	}
+</style>

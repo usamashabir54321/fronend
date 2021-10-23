@@ -11,11 +11,12 @@
 						</div>
 						<ul class="navbar-list right">
 							<li class="dropdown-language"><a class="waves-effect waves-block waves-light translation-button" href="#" data-target="translation-dropdown"><span class="flag-icon flag-icon-gb"></span></a></li>
-							<li class="hide-on-med-and-down"><a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);"><i class="material-icons">settings_overscan</i></a></li>
+							<li class="hide-on-med-and-down">
+								<a class="waves-effect waves-block waves-light toggle-fullscreen" href="javascript:void(0);" @click="doFullScreen"><i class="material-icons">settings_overscan</i></a>
+							</li>
 							<li class="hide-on-large-only search-input-wrapper"><a class="waves-effect waves-block waves-light search-button" href="javascript:void(0);"><i class="material-icons">search</i></a></li>
 							<li><a class="waves-effect waves-block waves-light notification-button" href="javascript:void(0);" data-target="notifications-dropdown"><i class="material-icons">notifications_none<small class="notification-badge">5</small></i></a></li>
 							<li><a class="waves-effect waves-block waves-light profile-button" href="javascript:void(0);" data-target="profile-dropdown"><span class="avatar-status avatar-online"><img src="/admin/images/avatar/avatar-7.png" alt="avatar"><i></i></span></a></li>
-							<li><a class="waves-effect waves-block waves-light sidenav-trigger" href="#" data-target="slide-out-right"><i class="material-icons">format_indent_increase</i></a></li>
 						</ul>
 						<!-- translation-button-->
 						<ul class="dropdown-content" id="translation-dropdown">
@@ -181,12 +182,20 @@
 		</ul>
 
 		<!-- BEGIN: SideNav-->
-		<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded">
+		<aside class="sidenav-main nav-expanded nav-lock nav-collapsible sidenav-dark sidenav-active-rounded" style="transition: all 0.3s ease-in-out !important;">
 			<div class="brand-sidebar">
 				<h1 class="logo-wrapper"><a class="brand-logo darken-1" href="index.html"><img class="hide-on-med-and-down " src="/admin/images/logo/materialize-logo.png" alt="materialize logo"><img class="show-on-medium-and-down hide-on-med-and-up" src="/admin/images/logo/materialize-logo-color.png" alt="materialize logo"><span class="logo-text hide-on-med-and-down">{{ $cookies.get('admin_u_name') }}</span></a><a class="navbar-toggler" href="#"><i class="material-icons">radio_button_checked</i></a></h1>
 			</div>
 			<ul class="sidenav sidenav-collapsible leftside-navigation collapsible sidenav-fixed menu-shadow" id="slide-out" data-menu="menu-navigation" data-collapsible="accordion">
-				<li class="navigation-header"><a class="navigation-header-text">Admin</a><i class="navigation-header-icon material-icons">more_horiz</i></li>
+				<li class="navigation-header">
+					<a class="navigation-header-text">{{ $cookies.get('admin_u_type') }} Admin</a>
+					<i class="navigation-header-icon material-icons">more_horiz</i>
+				</li>
+				<li class="bold" v-if="$cookies.get('admin_u_type') == 'author'">
+					<nuxt-link :to="{ name : 'admin-athr-menuscript' }" class="waves-effect waves-cyan">
+						<i class="material-icons">import_contacts</i><span class="menu-title">Menu Script</span>
+					</nuxt-link>
+				</li>
 				<li 
 					class="bold" 
 					:class="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' || $route.name == 'admin-crud' ? 'active open' : '' ]"
@@ -194,7 +203,10 @@
 					<a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)">
 						<i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
 					</a>
-					<div class="collapsible-body">
+					<div 
+						class="collapsible-body"
+						:style="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' || $route.name == 'admin-crud' ? {'display':'block'} : {'display':'none'} ]"
+					>
 						<ul class="collapsible collapsible-sub" data-collapsible="accordion">
 							<li>
 								<nuxt-link :to="{ name : 'admin-dashboard' }">
@@ -236,6 +248,9 @@
   			logout () {
 				this.$router.push({name : 'login'});
 				this.$cookies.removeAll();
+  			},
+  			doFullScreen () {
+  				document.fullScreenElement&&null!==document.fullScreenElement||!document.mozFullScreen&&!document.webkitIsFullScreen?document.documentElement.requestFullScreen?document.documentElement.requestFullScreen():document.documentElement.mozRequestFullScreen?document.documentElement.mozRequestFullScreen():document.documentElement.webkitRequestFullScreen?document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT):document.documentElement.msRequestFullscreen&&(document.msFullscreenElement?document.msExitFullscreen():document.documentElement.msRequestFullscreen()):document.cancelFullScreen?document.cancelFullScreen():document.mozCancelFullScreen?document.mozCancelFullScreen():document.webkitCancelFullScreen&&document.webkitCancelFullScreen()
   			},
   		},
 	}
