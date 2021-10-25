@@ -42,7 +42,8 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: 'https://scilip.masoodapp.com/',
+    baseURL: 'http://localhost:8000/',
+    // baseURL: 'https://scilip.masoodapp.com/',
   },
 
   router: {

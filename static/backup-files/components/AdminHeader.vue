@@ -92,11 +92,6 @@
 					<a class="navigation-header-text">{{ auth_user.role }}</a>
 					<i class="navigation-header-icon material-icons">more_horiz</i>
 				</li>
-				<li class="bold">
-					<nuxt-link :to="{ name : 'admin-dashboard' }" class="waves-effect waves-cyan">
-						<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Dashbord</span>
-					</nuxt-link>
-				</li>
 				<!-- START ADMIN LINKS -->
 				<div v-if="auth_user.role == 'admin'">
 					<li class="bold">
@@ -119,11 +114,6 @@
 							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Special Issues</span>
 						</nuxt-link>
 					</li>
-					<li class="bold">
-						<nuxt-link :to="{ name : 'admin-admin-users' }" class="waves-effect waves-cyan">
-							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Users</span>
-						</nuxt-link>
-					</li>
 				</div>
 				<!-- END ADMIN LINKS -->
 				<!-- START AUTHOR LINKS -->
@@ -135,6 +125,45 @@
 					</li>
 				</div>
 				<!-- END AUTHOR LINKS -->
+				<li 
+					class="bold" 
+					:class="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' || $route.name == 'admin-crud' ? 'active open' : '' ]"
+				>
+					<a class="collapsible-header waves-effect waves-cyan " href="JavaScript:void(0)">
+						<i class="material-icons">settings_input_svideo</i><span class="menu-title" data-i18n="Dashboard">Dashboard</span>
+					</a>
+					<div 
+						class="collapsible-body"
+						:style="[ $route.name == 'admin-dashboard' || $route.name == 'admin-linkone' || $route.name == 'admin-linktwo' || $route.name == 'admin-crud' ? {'display':'block'} : {'display':'none'} ]"
+					>
+						<ul class="collapsible collapsible-sub" data-collapsible="accordion">
+							<li>
+								<nuxt-link :to="{ name : 'admin-dashboard' }">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>Dashbord</span>
+								</nuxt-link>
+							</li>
+							<li>
+								<nuxt-link :to="{ name : 'admin-linkone' }">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>Link 1</span>
+								</nuxt-link>
+							</li>
+							<li>
+								<nuxt-link :to="{ name : 'admin-linktwo' }">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>Link 2</span>
+								</nuxt-link>
+							</li>
+							<li>
+								<nuxt-link :to="{ name : 'admin-crud' }">
+									<i class="material-icons">radio_button_unchecked</i>
+									<span>CRUD</span>
+								</nuxt-link>
+							</li>
+						</ul>
+					</div>
+				</li>
 			</ul>
 			<div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
 		</aside>

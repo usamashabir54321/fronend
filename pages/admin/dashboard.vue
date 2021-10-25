@@ -1,64 +1,79 @@
 <template>
 	<div id="main">
-		<div class="row">
-			<div class="content-wrapper-before blue-grey lighten-5"></div>
-			<div class="col s12">
-				<div class="container">
-					<div class="card subscriber-list-card animate fadeRight">
-						<div class="card-content pb-1">
-							<h4 class="card-title mb-0">Subscriber List <i class="material-icons float-right">more_vert</i></h4>
+		
+		<div id="card-stats" class="pt-0">
+			<div class="row">
+				<div class="col s12 m6 l6 xl3">
+					<div class="card gradient-45deg-light-blue-cyan gradient-shadow min-height-100 white-text animate fadeLeft">
+						<div class="padding-4">
+							<div class="row">
+								<div class="col s7 m7">
+									<i class="material-icons background-round mt-5">add_shopping_cart</i>
+									<p>Orders</p>
+								</div>
+								<div class="col s5 m5 right-align">
+									<h5 class="mb-0 white-text">690</h5>
+									<p class="no-margin">New</p>
+									<p>6,00,00</p>
+								</div>
+							</div>
 						</div>
-						<table class="subscription-table responsive-table highlight">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Company</th>
-									<th>Start Date</th>
-									<th>Status</th>
-									<th>Amount</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>Michael Austin</td>
-									<td>ABC Fintech LTD.</td>
-									<td>Jan 1,2019</td>
-									<td><span class="badge pink lighten-5 pink-text text-accent-2">Close</span></td>
-									<td>$ 1000.00</td>
-									<td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a></td>
-								</tr>
-								<tr>
-									<td>Aldin Rakić</td>
-									<td>ACME Pvt LTD.</td>
-									<td>Jan 10,2019</td>
-									<td><span class="badge green lighten-5 green-text text-accent-4">Open</span></td>
-									<td>$ 3000.00</td>
-									<td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a></td>
-								</tr>
-								<tr>
-									<td>İris Yılmaz</td>
-									<td>Collboy Tech LTD.</td>
-									<td>Jan 12,2019</td>
-									<td><span class="badge green lighten-5 green-text text-accent-4">Open</span></td>
-									<td>$ 2000.00</td>
-									<td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a></td>
-								</tr>
-								<tr>
-									<td>Lidia Livescu</td>
-									<td>My Fintech LTD.</td>
-									<td>Jan 14,2019</td>
-									<td><span class="badge pink lighten-5 pink-text text-accent-2">Close</span></td>
-									<td>$ 1100.00</td>
-									<td class="center-align"><a href="#"><i class="material-icons pink-text">clear</i></a></td>
-								</tr>
-							</tbody>
-						</table>
 					</div>
 				</div>
-				<div class="content-overlay"></div>
+				<div class="col s12 m6 l6 xl3">
+					<div class="card gradient-45deg-red-pink gradient-shadow min-height-100 white-text animate fadeLeft">
+						<div class="padding-4">
+							<div class="row">
+								<div class="col s7 m7">
+									<i class="material-icons background-round mt-5">perm_identity</i>
+									<p>Clients</p>
+								</div>
+								<div class="col s5 m5 right-align">
+									<h5 class="mb-0 white-text">1885</h5>
+									<p class="no-margin">New</p>
+									<p>1,12,900</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l6 xl3">
+					<div class="card gradient-45deg-amber-amber gradient-shadow min-height-100 white-text animate fadeRight">
+						<div class="padding-4">
+							<div class="row">
+								<div class="col s7 m7">
+									<i class="material-icons background-round mt-5">timeline</i>
+									<p>Sales</p>
+								</div>
+								<div class="col s5 m5 right-align">
+									<h5 class="mb-0 white-text">80%</h5>
+									<p class="no-margin">Growth</p>
+									<p>3,42,230</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col s12 m6 l6 xl3">
+					<div class="card gradient-45deg-green-teal gradient-shadow min-height-100 white-text animate fadeRight">
+						<div class="padding-4">
+							<div class="row">
+								<div class="col s7 m7">
+									<i class="material-icons background-round mt-5">attach_money</i>
+									<p>Profit</p>
+								</div>
+								<div class="col s5 m5 right-align">
+									<h5 class="mb-0 white-text">$890</h5>
+									<p class="no-margin">Today</p>
+									<p>$25,000</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+
 	</div>
 </template>
 

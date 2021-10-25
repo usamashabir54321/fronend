@@ -51,7 +51,7 @@
 												<select v-model="addObj.role" class="custom-select-box">
 													<option disabled value="">Select Your Role</option>
 													<option value="author">Author</option>
-													<option value="publisher">Publisher</option>
+													<option value="reviewer">Reviewer</option>
 												</select>
 											</div>
 										</div>
@@ -148,6 +148,7 @@
 						this.swalfire('success','You can register with this email now.');
 						this.$store.commit('logReg/changVldEmail','');
 						setTimeout(() => { this.$router.push({name : 'register-success'}); },300);
+						this.addObj = { role: 'author', };
 					});
 				} else {
 					this.invalidCaptha = true;

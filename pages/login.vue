@@ -81,9 +81,6 @@
 						this.swalfire('error',res.data.message);
 					} else {
 						this.swalfire('success',res.data.message);
-						this.$cookies.set('admin_u_id', res.data.user.id);
-						this.$cookies.set('admin_u_name', res.data.user.name);
-						this.$cookies.set('admin_u_type', res.data.user.role);
 						this.$cookies.set('admin_token', res.data.access_token);
 						setTimeout(() => { this.$router.push({name : 'admin-dashboard'}); },300);
 					}
