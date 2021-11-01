@@ -129,7 +129,7 @@
 										<td v-if="allRow.get_script_files.length > 0">
 											<span v-for="(file , index) in allRow.get_script_files" class="script_f_span">
 												<a @click="deleteFunc(file.id,'deleteScrptFile',index)" class="btn-floating btn-flat waves-effect waves-light pink accent-2 white-text mb-1"><i class="material-icons">clear</i></a>
-												<a :href="file.f_path" download target="_blank">{{ index+1 }} ) {{ file.f_path }}</a><br>
+												<a :href="`${$axios.defaults.baseURL}${file.f_path}`" download target="_blank">{{ index+1 }} ) {{ file.f_path }}</a><br>
 											</span>
 										</td>
 										<td class="center-align" v-else><span>No Attached File</span></td>

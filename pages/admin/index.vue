@@ -59,7 +59,7 @@
 				loginObj: {},
 			}
 		},
-		created () {
+		mounted () {
 			this.helperFunc();
 		},
 		methods : {

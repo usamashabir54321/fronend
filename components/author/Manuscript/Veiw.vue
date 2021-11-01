@@ -60,19 +60,19 @@
 							<tr>
 								<th>View Script Docx File</th>
 								<td>
-									<a :href="allRow.doc_file_n" download target="_blank">{{ allRow.doc_file_n }}</a>
+									<a :href="`${$axios.defaults.baseURL}${allRow.doc_file_n}`" download target="_blank">{{ allRow.doc_file_n }}</a>
 								</td>
 							</tr>
 							<tr>
 								<th>Script File Figure</th>
 								<td>
-									<img :src="allRow.figure_pic_n" width="200" height="200">
+									<img :src="`${$axios.defaults.baseURL}${allRow.figure_pic_n}`" width="200" height="200">
 								</td>
 							</tr>
 							<tr>
 								<th>View Script Additional Files</th>
 								<td v-if="allRow.get_script_files.length > 0">
-									<a v-for="(file , index) in allRow.get_script_files" :href="file.f_path" download target="_blank">{{ index+1 }} ) {{ file.f_path }} <br></a>
+									<a v-for="(file , index) in allRow.get_script_files" :href="`${$axios.defaults.baseURL}${file.f_path}`" download target="_blank">{{ index+1 }} ) {{ file.f_path }} <br></a>
 								</td>
 								<td v-else><span>No Attached File</span></td>
 							</tr>
