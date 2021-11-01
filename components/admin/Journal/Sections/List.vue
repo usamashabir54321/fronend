@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="card subscriber-list-card animate fadeRight">
 					
-					<table class="subscription-table responsive-table highlight">
+					<table v-if="listData.length > 0" class="subscription-table responsive-table highlight">
 						<thead>
 							<tr>
 								<th>Id</th>
@@ -25,6 +25,9 @@
 							</tr>
 						</tbody>
 					</table>
+					<div v-else class="card-alert card purple">
+						<div class="card-content white-text"><b>No Record.</b></div>
+					</div>
 
 				</div>
 			</div>

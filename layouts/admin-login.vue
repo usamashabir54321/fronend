@@ -8,6 +8,11 @@
 
 <script>
   export default {
+    beforeCreate () {
+      if (this.$cookies.get('admin_token')) {
+        this.$router.push({name : 'admin-dashboard'});
+      }
+    },
     head() {
       return {
         title: 'admin login layout',

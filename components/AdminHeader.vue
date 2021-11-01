@@ -129,8 +129,22 @@
 				<!-- START AUTHOR LINKS -->
 				<div v-if="auth_user.role == 'author'">
 					<li class="bold">
-						<nuxt-link :to="{ name : 'admin-athr-menuscript' }" class="waves-effect waves-cyan">
-							<i class="material-icons">import_contacts</i><span class="menu-title">Menu Script</span>
+						<nuxt-link :to="{ name : 'admin-author-manuscripts' }" class="waves-effect waves-cyan">
+							<i class="material-icons">import_contacts</i><span class="menu-title">Manu Scripts</span>
+						</nuxt-link>
+					</li>
+					<li class="bold">
+						<nuxt-link :to="{ name : 'admin-author-add-manuscript' }" class="waves-effect waves-cyan">
+							<i class="material-icons">import_contacts</i><span class="menu-title">Add Manu Script</span>
+						</nuxt-link>
+					</li>
+				</div>
+				<!-- END AUTHOR LINKS -->
+				<!-- START AUTHOR LINKS -->
+				<div v-if="auth_user.role == 'reviewer'">
+					<li class="bold">
+						<nuxt-link :to="{ name : 'admin-reviewer-manuscripts' }" class="waves-effect waves-cyan">
+							<i class="material-icons">import_contacts</i><span class="menu-title">Manu Scripts</span>
 						</nuxt-link>
 					</li>
 				</div>
