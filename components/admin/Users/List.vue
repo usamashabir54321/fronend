@@ -17,7 +17,7 @@
 						<tbody>
 							<tr v-for="(row , index) in listData" :key="index">
 								<td>{{ index+1 }}</td>
-								<td>{{ row.name }}</td>
+								<td>{{ row.f_name }} {{ row.l_name }}</td>
 								<td>{{ row.email }}</td>
 								<td>
 									<span class="badge gradient-shadow" :class="row.role == 'chief-editor' ? 'gradient-45deg-light-blue-cyan' : 'gradient-45deg-purple-deep-orange'">{{ row.role }}</span>

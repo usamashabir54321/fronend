@@ -8,20 +8,18 @@
 						<thead>
 							<tr>
 								<th>Id</th>
-								<th>Aritcle Type Title</th>
+								<th>Name</th>
+								<th>Email</th>
 								<th>Journal Title</th>
-								<th>Sections Title</th>
-								<th>Special Issue</th>
 								<th class="center-align">Action</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr v-for="(row , index) in listData" :key="index">
 								<td>{{ index+1 }}</td>
-								<td>{{ row.a_t_title }}</td>
-								<td>{{ row.get_journal.title }}</td>
-								<td>{{ row.get_journal_sec.s_title }}</td>
-								<td>{{ row.get_spe_issue.sp_issue }}</td>
+								<td>{{ row.f_name }} {{ row.l_name }}</td>
+								<td>{{ row.email }}</td>
+								<td v-if="row.get_journal.title">{{ row.get_journal.title }}</td>
 								<td class="center-align">
 									<a @click="$emit('updateFunc',row)" class="btn-floating waves-effect waves-light gradient-45deg-purple-deep-orange gradient-shadow"><i class="material-icons">edit</i></a>&nbsp;
 									<a @click="deleteFunc(row.id)" class="btn-floating waves-effect waves-light gradient-45deg-amber-amber gradient-shadow"><i class="material-icons">delete</i></a>
@@ -51,7 +49,7 @@
 		},
 		methods: {
 			getData () {
-				this.$axios.get('/api/ArticleTypeContrlr').then(res => {
+				this.$axios.get('/api/AcosiateEditorContrlr').then(res => {
 					this.listData = res.data
 				});
 			},
@@ -74,7 +72,7 @@
 				}).then((result) => {
 					if (result.isConfirmed) {
 						/*DELETING BY AXIOS*/
-						this.$axios.delete('/api/ArticleTypeContrlr/'+row_id).then(res => {
+						this.$axios.delete('/api/AcosiateEditorContrlr/'+row_id).then(res => {
 							this.getData();
 						});
 						swalWithBootstrapButtons.fire(

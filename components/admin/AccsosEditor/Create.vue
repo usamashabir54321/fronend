@@ -3,43 +3,38 @@
 		<div class="col s12 m12 l12">
 			<div id="basic-form" class="card card card-default scrollspy">
 				<div class="card-content">
-					<h4 class="card-title">Add Users</h4>
+					<h4 class="card-title">Add Accossiate Editor</h4>
 					<form @submit.prevent="createFunc">
+
 						<div class="row">
 							<div class="input-field col s6">
 								<input type="text" required v-model="storeData.f_name">
-								<label>User First Name</label>
+								<label>Editor First Name</label>
 							</div>
 							<div class="input-field col s6">
 								<input type="text" required v-model="storeData.l_name">
-								<label>User Last Name</label>
+								<label>Editor Last Name</label>
 							</div>
 							<div class="input-field col s12">
 								<input type="email" required v-model="storeData.email">
-								<label>User Email</label>
+								<label>Editor Email</label>
 							</div>
 							<div class="input-field col s12">
 								<input type="text" required v-model="storeData.password" maxlength="20" minlength="5">
-								<label>User Password</label>
+								<label>Editor Password</label>
 							</div>
 							<div class="input-field col s12">
-								<select required v-model="storeData.role">
-									<option value=" " disabled>Select User Role</option>
-									<option value="publisher">Publisher</option>
-									<option value="editor">Editor</option>
-									<option value="reviewer">Reviewer</option>
-									<option value="author">Author</option>
-									<option value="copy-editor">Copy Editor</option>
-									<option value="proofreader">Proofreader</option>
-									<option value="academic-editor">Academic Editor</option>
-									<option v-if="isChief" value="chief-editor">Chief In Editor</option>
+								<select required v-model="storeData.j_id">
+									<option value=" " disabled>Select journal title</option>
+									<option v-for="(journal , index) in allJournals" :key="index" :value="journal.id">{{ journal.title }}</option>
 								</select>
-								<label :class="storeData.role ? 'active' : ''">User Role</label>
+								<label :class="storeData.j_id ? 'active' : ''">Select Journal</label>
 							</div>
 							<div class="input-field col s12">
 								<button class="btn cyan waves-effect waves-light right" type="submit">Save<i class="material-icons right">send</i></button>
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>
@@ -51,22 +46,23 @@
 	export default {
 		data () {
 			return {
-				storeData: {},
-				isChief: null,
+				storeData: {role:'accoss editor',},
+				allJournals: [],
 			}
 		},
 		mounted () {
-			this.$axios.get('api/isChiefUser').then(res => {
-				if (res.data == 0) {
-					this.isChief = true;
-				}
-			});
+			this.getRemainJournl();
 		},
 		methods: {
 			createFunc () {
-				this.$axios.post('api/UserContrlr',this.storeData).then(res => {
+				this.$axios.post('api/AcosiateEditorContrlr',this.storeData).then(res => {
 					if (res.data == 1) this.$emit('goList','true');
 					else this.$emit('goList','false');
+				});
+			},
+			getRemainJournl () {
+				this.$axios.get('api/accContrlrCode/getEmptyJrnl').then(res => {
+					this.allJournals = res.data;
 				});
 			},
 		},

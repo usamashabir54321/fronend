@@ -21,14 +21,7 @@
 								<label :class="storeData.j_sec_id ? 'active' : ''">Select Journal Section Title</label>
 							</div>
 							<div class="input-field col s12">
-								<select required v-model="storeData.a_t_id">
-									<option value=" " disabled>Select Article Type Title</option>
-									<option v-for="(artcle , index) in allSecsArtcleTyp" :key="index" :value="artcle.id">{{ artcle.a_t_title }}</option>
-								</select>
-								<label :class="storeData.a_t_id ? 'active' : ''">Select Article Type Title</label>
-							</div>
-							<div class="input-field col s12">
-								<textarea required class="materialize-textarea" v-model="storeData.sp_issue"></textarea>
+								<input type="text" required v-model="storeData.sp_issue">
 								<label>Special Issue</label>
 							</div>
 							<div class="input-field col s12">

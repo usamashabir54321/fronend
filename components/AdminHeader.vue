@@ -110,18 +110,23 @@
 						</nuxt-link>
 					</li>
 					<li class="bold">
-						<nuxt-link :to="{ name : 'admin-admin-article-type' }" class="waves-effect waves-cyan">
-							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Artical Type</span>
-						</nuxt-link>
-					</li>
-					<li class="bold">
 						<nuxt-link :to="{ name : 'admin-admin-special-issue' }" class="waves-effect waves-cyan">
 							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Special Issues</span>
 						</nuxt-link>
 					</li>
 					<li class="bold">
+						<nuxt-link :to="{ name : 'admin-admin-article-type' }" class="waves-effect waves-cyan">
+							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Artical Type</span>
+						</nuxt-link>
+					</li>
+					<li class="bold">
 						<nuxt-link :to="{ name : 'admin-admin-users' }" class="waves-effect waves-cyan">
 							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Users</span>
+						</nuxt-link>
+					</li>
+					<li class="bold">
+						<nuxt-link :to="{ name : 'admin-admin-accossiate-editor' }" class="waves-effect waves-cyan">
+							<i class="material-icons">radio_button_unchecked</i><span class="menu-title">Accossiate Editor</span>
 						</nuxt-link>
 					</li>
 				</div>
@@ -140,7 +145,7 @@
 					</li>
 				</div>
 				<!-- END AUTHOR LINKS -->
-				<!-- START AUTHOR LINKS -->
+				<!-- START REVIEWER LINKS -->
 				<div v-if="auth_user.role == 'reviewer'">
 					<li class="bold">
 						<nuxt-link :to="{ name : 'admin-reviewer-manuscripts' }" class="waves-effect waves-cyan">
@@ -148,7 +153,16 @@
 						</nuxt-link>
 					</li>
 				</div>
-				<!-- END AUTHOR LINKS -->
+				<!-- END REVIEWER LINKS -->
+				<!-- START ACCOSSIATE AUTHOR LINKS -->
+				<div v-if="auth_user.role == 'accoss editor'">
+					<li class="bold">
+						<nuxt-link :to="{ name : 'admin-acc-editor-manuscripts' }" class="waves-effect waves-cyan">
+							<i class="material-icons">import_contacts</i><span class="menu-title">Manu Scripts</span>
+						</nuxt-link>
+					</li>
+				</div>
+				<!-- END ACCOSSIATE AUTHOR LINKS -->
 			</ul>
 			<div class="navigation-background"></div><a class="sidenav-trigger btn-sidenav-toggle btn-floating btn-medium waves-effect waves-light hide-on-large-only" href="#" data-target="slide-out"><i class="material-icons">menu</i></a>
 		</aside>

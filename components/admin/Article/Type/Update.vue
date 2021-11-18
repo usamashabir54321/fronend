@@ -14,11 +14,18 @@
 								<label class="active">Select Journal Title</label>
 							</div>
 							<div class="input-field col s12">
-								<select required v-model="editRow.j_sec_id">
+								<select required v-model="editRow.j_sec_id" @change="getJSecIssues">
 									<option value=" " disabled>Select Journal Section Title</option>
 									<option v-for="(sec , index) in allJournalSecs" :key="index" :value="sec.id">{{ sec.s_title }}</option>
 								</select>
 								<label class="active">Select Journal Section Title</label>
+							</div>
+							<div class="input-field col s12">
+								<select required v-model="editRow.issue_id">
+									<option value=" " disabled>Select Special Issue</option>
+									<option v-for="(issue , index) in allIssues" :key="index" :value="issue.id">{{ issue.sp_issue }}</option>
+								</select>
+								<label class="active">Select Special Issue</label>
 							</div>
 							<div class="input-field col s12">
 								<input type="text" required v-model="editRow.a_t_title">
@@ -41,10 +48,12 @@
 		data () {
 			return {
 				allJournalSecs: [],
+				allIssues: [],
 			}
 		},
 		mounted () {
 			this.getJournalSecs();
+			this.getJSecIssues();
 		},
 		methods: {
 			updateFunc () {
@@ -55,6 +64,11 @@
 			getJournalSecs () {
 				this.$axios.get('api/getJournalSecs/'+this.editRow.j_id).then(res => {
 					this.allJournalSecs = res.data;
+				});
+			},
+			getJSecIssues () {
+				this.$axios.get('api/getJSecIssues/'+this.editRow.j_sec_id).then(res => {
+					this.allIssues = res.data;
 				});
 			},
 		},

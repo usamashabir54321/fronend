@@ -30,7 +30,15 @@
       }
     },
     created () {
-      this.$axios.get('/api/user/auth_user').then(res => { this.auth_user = res.data;this.showAdmin = true; });
+      this.$axios.get('/api/user/auth_user').then(res => { 
+        this.auth_user = res.data;
+        this.showAdmin = true;
+      });
+    },
+    mounted () {
+      setTimeout(() => {
+        this.$store.commit('logReg/myAuthUser',this.auth_user);
+      },3000);
     },
     head() {
       return {

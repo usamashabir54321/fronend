@@ -11,7 +11,6 @@
 								<th>Special Issue</th>
 								<th>Journal Title</th>
 								<th>Sections Title</th>
-								<th>Aritcle Type Title</th>
 								<th class="center-align">Action</th>
 							</tr>
 						</thead>
@@ -21,7 +20,6 @@
 								<td>{{ row.sp_issue }}</td>
 								<td>{{ row.get_journal.title }}</td>
 								<td>{{ row.get_journal_sec.s_title }}</td>
-								<td>{{ row.get_sec_artcle_typ.a_t_title }}</td>
 								<td class="center-align">
 									<a @click="$emit('updateFunc',row)" class="btn-floating waves-effect waves-light gradient-45deg-purple-deep-orange gradient-shadow"><i class="material-icons">edit</i></a>&nbsp;
 									<a @click="deleteFunc(row.id)" class="btn-floating waves-effect waves-light gradient-45deg-amber-amber gradient-shadow"><i class="material-icons">delete</i></a>

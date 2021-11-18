@@ -6,8 +6,8 @@
 
 					<h4 class="pt-2 pl-2"><b>My Submissions</b></h4>
 					
-					<div v-if="my_scripts.length > 0" id="scrpt_m_id">
-						<div v-for="(row , index) in my_scripts" :key="index" class="my_scrpt">
+					<div v-if="script.length > 0" id="scrpt_m_id">
+						<div v-for="(row , index) in script" :key="index" class="my_scrpt">
 							<div class="scrpt_hdr"><span class="blue-text">{{ index+1 }}.</span> <span class="a_id green-text">{{ row.artcle_id }}</span></div>
 							<div class="scrpt_bdy">
 								<p class="black-text">{{ row.status }}</p>
@@ -42,8 +42,8 @@
 									</div>
 								</div>
 								<div class="text_right">
-									<button @click="$emit('rowFunc','AuthorManuscriptView',row)" class="btn btn-info mr-2">View Submission</button>
-									<button v-if="row.is_comp" @click="getScrptPdf(row.id)" class="btn btn-info">Download PDF form manuscript</button>
+									<button @click="$emit('rowFunc','ManuscriptView',row)" class="btn btn-info mr-2">View Submission</button>
+									<button @click="getScrptPdf(row.id)" class="btn btn-info">Download PDF form manuscript</button>
 								</div>
 							</div>
 						</div>
@@ -60,21 +60,7 @@
 
 <script>
 	export default {
-		data () {
-			return {
-				my_scripts: [],
-			}
-		},
-		mounted () {
-			this.getData();
-		},
-		methods: {
-			getData () {
-				this.$axios.get('/api/manuScriptContrlr').then(res => {
-					this.my_scripts = res.data.data;
-				});
-			},
-		},
+		props: ['script'],
 	}
 </script>
 

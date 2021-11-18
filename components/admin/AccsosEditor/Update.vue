@@ -3,20 +3,21 @@
 		<div class="col s12 m12 l12">
 			<div id="basic-form" class="card card card-default scrollspy">
 				<div class="card-content">
-					<h4 class="card-title">Update Users</h4>
+					<h4 class="card-title">Update Accossiate Editor</h4>
 					<form @submit.prevent="updateFunc">
+
 						<div class="row">
 							<div class="input-field col s6">
 								<input type="text" required v-model="editRow.f_name">
-								<label class="active">User First Name</label>
+								<label class="active">Editor First Name</label>
 							</div>
 							<div class="input-field col s6">
 								<input type="text" required v-model="editRow.l_name">
-								<label class="active">User Last Name</label>
+								<label class="active">Editor Last Name</label>
 							</div>
 							<div class="input-field col s12">
 								<input type="email" required v-model="editRow.email">
-								<label class="active">User Email</label>
+								<label class="active">Editor Email</label>
 							</div>
 							<div class="input-field col s12">
 								<input type="text" v-model="editRow.confrm_pass" @keyup="confirmPass">
@@ -27,23 +28,17 @@
 								<label>User Password</label>
 							</div>
 							<div class="input-field col s12">
-								<select v-model="editRow.role">
-									<option value=" " disabled>Select User Role</option>
-									<option value="publisher">Publisher</option>
-									<option value="editor">Editor</option>
-									<option value="reviewer">Reviewer</option>
-									<option value="author">Author</option>
-									<option value="copy-editor">Copy Editor</option>
-									<option value="proofreader">Proofreader</option>
-									<option value="academic-editor">Academic Editor</option>
-									<option v-if="isChief" value="chief-editor">Chief In Editor</option>
+								<select v-model="editRow.new_j_id">
+									<option value=" " disabled>Select journal title</option>
+									<option v-for="(journal , index) in allJournals" :key="index" :value="journal.id">{{ journal.title }}</option>
 								</select>
-								<label class="active">User Role</label>
+								<label :class="editRow.new_j_id ? 'active' : ''">Update Journal <span v-if="editRow.get_journal.title">{{ editRow.get_journal.title }}</span></label>
 							</div>
 							<div class="input-field col s12">
 								<button class="btn cyan waves-effect waves-light right" type="submit">Update<i class="material-icons right">send</i></button>
 							</div>
 						</div>
+
 					</form>
 				</div>
 			</div>
@@ -56,21 +51,22 @@
 		props: ['editRow'],
 		data () {
 			return {
-				isChief: null,
+				allJournals: [],
 				isPass: null,
 			}
 		},
 		mounted () {
-			this.$axios.get('api/isChiefUser').then(res => {
-				if (res.data == 0) {
-					this.isChief = true;
-				}
-			});
+			this.getRemainJournl();
 		},
 		methods: {
 			updateFunc () {
-				this.$axios.patch('/api/UserContrlr/'+this.editRow.id,this.editRow).then(res => {
+				this.$axios.patch('/api/AcosiateEditorContrlr/'+this.editRow.id,this.editRow).then(res => {
 					this.$emit('goList');
+				});
+			},
+			getRemainJournl () {
+				this.$axios.get('api/accContrlrCode/getEmptyJrnl').then(res => {
+					this.allJournals = res.data;
 				});
 			},
 			confirmPass () {

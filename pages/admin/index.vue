@@ -59,9 +59,6 @@
 				loginObj: {},
 			}
 		},
-		mounted () {
-			this.helperFunc();
-		},
 		methods : {
 			async loginMe() {
 				await this.$axios.post('/api/user/login', this.loginObj).then(res => {
